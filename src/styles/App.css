@@ -23,7 +23,7 @@ button{
   padding: 8px 16px;
   margin: 10px;
 }
-.list-item{
+.item{
   border: 1px solid black;
   display: flex;
   padding: 40px;
