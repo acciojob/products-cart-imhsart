@@ -33,7 +33,7 @@ const App = () => {
           <ul>
             {
               cartProducts.map(item => {
-                return <li className="cart-item" key={item.id}><p>{item.product}</p><button onClick={() => handleDelete(item.id)}>Remove</button></li>
+                return <li className="cart-item" key={item.id}>{item.product}<button onClick={() => handleDelete(item.id)}>Remove</button></li>
               })
 
             }
