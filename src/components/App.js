@@ -20,7 +20,7 @@ const App = () => {
         <h1>List of Products</h1>
         <div className="container">
           {
-            productsArr.map(item => <p className="item">{item}<button className="add-btn" onClick={() => handleClick(item)}>Add Item</button></p>)
+            productsArr.map(item => <div className="item">{item}<button className="add-btn" onClick={() => handleClick(item)}>Add Item</button></div>)
           }
         </div>
         <hr />

@@ -29,6 +29,7 @@ button{
   padding: 40px;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 .add-btn{
   width: max-content;
