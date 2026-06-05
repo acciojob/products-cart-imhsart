@@ -6,7 +6,7 @@ const productsArr = ['Samsung Galaxy Fold 4', 'Iphone 14 Pro','Pixel 5', 'Mi not
 
 const App = () => {
   const [cartProducts, setCartProducts] = useState([])
-  const [count, setCount] = useState(1)
+  const [count, setCount] = useState(0)
   function handleClick(val){
     setCartProducts(prev => [...prev, {id: count, product: val}])
     setCount(prev => prev+1)
