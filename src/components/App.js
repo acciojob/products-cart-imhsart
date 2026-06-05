@@ -27,16 +27,18 @@ const App = () => {
           }
         </div>
         <hr />
-        <h1>Cart</h1>
-        {!cartProducts.length ? <p style={{color:'red', margin:'20px'}}>There are no items in the cart</p> :
-        <ul>
-          {
-            cartProducts.map(item => {
-              return <li className="cart" key={item.id}><p>{item.product}</p><button onClick={() => handleDelete(item.id)}>Remove</button></li>
-            })
+        <div className="cart">
+          <h1>Cart</h1>
+          {!cartProducts.length ? <p style={{color:'red', margin:'20px'}}>There are no items in the cart</p> :
+          <ul>
+            {
+              cartProducts.map(item => {
+                return <li className="cart-item" key={item.id}><p>{item.product}</p><button onClick={() => handleDelete(item.id)}>Remove</button></li>
+              })
 
-          }
-        </ul>}
+            }
+          </ul>}
+        </div>
     </div>
   )
 }
