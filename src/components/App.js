@@ -6,15 +6,15 @@ const productsArr = ['Samsung Galaxy Fold 4', 'Iphone 14 Pro','Pixel 5', 'Mi not
 
 const App = () => {
   const [cartProducts, setCartProducts] = useState([])
+  const [count, setCount] = useState(0)
 
-  function handleClick(idx) {
-    if (!cartProducts.includes(idx)) {
-      setCartProducts(prev => [...prev, idx])
-    }
+  function handleClick(val) {
+    setCartProducts(prev => [...prev, { id: count, product: val }])
+    setCount(prev => prev + 1)
   }
 
-  function handleDelete(idx) {
-    setCartProducts(cartProducts.filter(val => val !== idx))
+  function handleDelete(id) {
+    setCartProducts(cartProducts.filter(val => val.id !== id))
   }
 
   return (
@@ -24,7 +24,7 @@ const App = () => {
         {productsArr.map((item, idx) => (
           <div className="item" key={idx}>
             <p>{item}</p>
-            <button onClick={() => handleClick(idx)}>Add Item</button>
+            <button onClick={() => handleClick(item)}>Add Item</button>
           </div>
         ))}
       </div>
@@ -34,10 +34,12 @@ const App = () => {
         {!cartProducts.length
           ? <p style={{ color: 'red', margin: '20px' }}>There are no items in the cart</p>
           : <ul>
-              {cartProducts.map(idx => (
-                <li className="cart-item" key={idx}>
-                  {productsArr[idx]}
-                  <button onClick={() => handleDelete(idx)}>{cartProducts.length}</button>
+              {cartProducts.map((item, idx) => (
+                <li className="cart-item" key={item.id}>
+                  {item.product}
+                  <button onClick={() => handleDelete(item.id)}>
+                    {idx + 1}
+                  </button>
                 </li>
               ))}
             </ul>
