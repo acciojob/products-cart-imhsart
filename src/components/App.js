@@ -2,7 +2,7 @@
 import React, {useState} from "react";
 import './../styles/App.css';
 
-const productsArr = ['Samsung Galaxy Fold 4', 'Iphone 14 Pro','Pixel 5', 'Mi note 6','Firestick', 'OnePlus Nord'];
+const productsArr = ['Samsung Galaxy Fold 4', 'Iphone 14 Pro','Pixel 5', 'Mi note 6','FireStick', 'OnePlus Nord'];
 
 const App = () => {
   const [cartProducts, setCartProducts] = useState([])
@@ -29,10 +29,10 @@ const App = () => {
         <hr />
         <h1>Cart</h1>
         {!cartProducts.length ? <p style={{color:'red', margin:'20px'}}>There are no items in the cart</p> :
-        <ul className="cart">
+        <ul>
           {
             cartProducts.map(item => {
-              return <li className="cart-item" key={item.id}><p>{item.product}</p><button onClick={() => handleDelete(item.id)}>Remove</button></li>
+              return <li className="cart" key={item.id}><p>{item.product}</p><button onClick={() => handleDelete(item.id)}>Remove</button></li>
             })
 
           }
