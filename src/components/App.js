@@ -20,20 +20,16 @@ const App = () => {
         <h1>List of Products</h1>
         <div className="container">
           {
-            productsArr.map(item => <div className="item">{item}<button className="add-btn" onClick={() => handleClick(item)}>Add Item</button></div>)
+            productsArr.map(item => <div className="item" key={item}>{item}<button className="add-btn" onClick={() => handleClick(item)}>Add Item</button></div>)
           }
         </div>
         <hr />
+        <h1>Cart</h1>
         <div className="cart">
-          <h1>Cart</h1>
-          {!cartProducts.length ? <p style={{color:'red', margin:'20px'}}>There are no items in the cart</p> :
-          <ul>
-            {
-              cartProducts.map(item => {
-                return <li className="cart-item" key={item}>{item}<button onClick={() => handleDelete(item)}>Remove</button></li>
-              })
-            }
-          </ul>}
+          {!cartProducts.length ? <p style={{color:'red', margin:'20px'}}>There are no items in the cart</p> 
+          : cartProducts.map(item => {
+                return <div className="cart-item" key={item}>{item}<button onClick={() => handleDelete(item)}>Remove</button></div>
+              })}
         </div>
     </div>
   )
